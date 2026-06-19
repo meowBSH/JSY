@@ -1,6 +1,6 @@
 :root {
-  --page-width: 497px;
-  --phone-height: 1077px;
+  --page-width: 590px;
+  --phone-height: 1280px;
   --side-padding: 16px;
   --text-color: #242124;
 }
@@ -28,12 +28,14 @@ body {
 }
 
 .paper-screen {
-  width: min(100vw, 46.15vh, var(--page-width));
-  height: min(100vh, 216.67vw, var(--phone-height));
+  width: min(100vw, 46.09vh, var(--page-width));
+  height: min(100vh, 216.95vw, var(--phone-height));
   margin: 0;
-  padding: clamp(90px, min(23.34vw, 10.77vh), 116px) var(--side-padding) 34px;
+  padding: 0;
   background: #ffffff;
   container-type: inline-size;
+  position: relative;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
@@ -41,14 +43,40 @@ body {
 
 @supports (height: 100dvh) {
   .paper-screen {
-    width: min(100vw, 46.15dvh, var(--page-width));
-    height: min(100dvh, 216.67vw, var(--phone-height));
-    padding-top: clamp(90px, min(23.34vw, 10.77dvh), 116px);
+    width: min(100vw, 46.09dvh, var(--page-width));
+    height: min(100dvh, 216.95vw, var(--phone-height));
   }
 }
 
 .paper-screen::-webkit-scrollbar {
   display: none;
+}
+
+.sequence-stage {
+  width: 100%;
+  min-height: 100%;
+  line-height: 0;
+}
+
+.typography-frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 section {

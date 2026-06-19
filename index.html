@@ -1,72 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paper Shredder</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <main class="paper-screen" aria-label="Paper Shredder chapter information">
-    <section class="intro-block">
-      <h1>Paper Shredder</h1>
-      <p>Alice Comi</p>
-    </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paper Shredder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="paper-screen" aria-label="Paper Shredder chapter information">
+      <div class="sequence-stage" aria-hidden="true">
+        <img
+          id="typographyFrame"
+          class="typography-frame"
+          src="assets/typogra/typogra_00000.jpg"
+          width="590"
+          height="2500"
+          alt=""
+          draggable="false"
+          fetchpriority="high"
+        />
+      </div>
 
-    <section class="source-block">
-      <h2>
-        The Oxford Handbook of Media,<br>
-        Technology, and Organization Studies
-      </h2>
-    </section>
+      <div class="sr-only">
+        <section class="intro-block">
+          <h1>Paper Shredder</h1>
+          <p>Alice Comi</p>
+        </section>
 
-    <section class="abstract-block">
-      <p>
-        This chapter shows how the paper shre-<br>
-        dder mediates aspects of confidentiality,<br>
-        transparency, and secrecy in organizations.<br>
-        Following Susan Star Leigh&rsquo;s &lsquo;tricks of the<br>
-        trade&rsquo;, it conceptualizes the paper shredder<br>
-        as material infrastructure and retraces its<br>
-        organizing force and effects. This brings<br>
-        into view virtuous as well as vicious prac-<br>
-        tices in which the paper shredder becomes<br>
-        implicated&mdash;ranging from the protection of<br>
-        sensitive data, to the covering of unethical<br>
-        practices. The chapter concludes with<br>
-        suggestions to reconceptualize material<br>
-        infrastructures in organizations, and unveil-<br>
-        related aspects of confidentiality, trans-<br>
-        parency, and secrecy.
-      </p>
-    </section>
+        <section class="source-block">
+          <h2>
+            The Oxford Handbook of Media,<br />
+            Technology, and Organization Studies
+          </h2>
+        </section>
 
-    <section class="keywords-block">
-      <p>
-        Keywords: confidentiality, transparency,<br>
-        secrecy, material infrastructures,objects,<br>
-        scandals
-      </p>
-    </section>
+        <section class="abstract-block">
+          <p>
+            This chapter shows how the paper shre-<br />
+            dder mediates aspects of confidentiality,<br />
+            transparency, and secrecy in organizations.<br />
+            Following Susan Star Leigh&rsquo;s &lsquo;tricks of the<br />
+            trade&rsquo;, it conceptualizes the paper shredder<br />
+            as material infrastructure and retraces its<br />
+            organizing force and effects. This brings<br />
+            into view virtuous as well as vicious prac-<br />
+            tices in which the paper shredder becomes<br />
+            implicated&mdash;ranging from the protection of<br />
+            sensitive data, to the covering of unethical<br />
+            practices. The chapter concludes with<br />
+            suggestions to reconceptualize material<br />
+            infrastructures in organizations, and unveil-<br />
+            related aspects of confidentiality, trans-<br />
+            parency, and secrecy.
+          </p>
+        </section>
 
-    <section class="editors-block">
-      <p>
-        Edited by Timon Beyes, Robin Holt, and<br>
-        Claus Pias
-      </p>
-    </section>
+        <section class="keywords-block">
+          <p>
+            Keywords: confidentiality, transparency,<br />
+            secrecy, material infrastructures,objects,<br />
+            scandals
+          </p>
+        </section>
 
-    <section class="publication-block">
-      <p>
-        Print Publication Date: Dec 2019<br>
-        Subject: Business and Management,<br>
-        Technology and Knowledge Management<br>
-        Online Publication Date: Feb 2020 DOI:<br>
-        10.1093/oxfordhb/9780198809913.013.24
-      </p>
-    </section>
-  </main>
+        <section class="editors-block">
+          <p>
+            Edited by Timon Beyes, Robin Holt, and<br />
+            Claus Pias
+          </p>
+        </section>
 
-  <script src="script.js"></script>
-</body>
+        <section class="publication-block">
+          <p>
+            Print Publication Date: Dec 2019<br />
+            Subject: Business and Management,<br />
+            Technology and Knowledge Management<br />
+            Online Publication Date: Feb 2020 DOI:<br />
+            10.1093/oxfordhb/9780198809913.013.24
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
