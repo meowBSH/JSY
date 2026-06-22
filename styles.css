@@ -1,6 +1,6 @@
 :root {
   --page-width: 590px;
-  --phone-height: 1280px;
+  --viewport-height: 1280px;
   --side-padding: 16px;
   --text-color: #242124;
 }
@@ -29,7 +29,7 @@ body {
 
 .paper-screen {
   width: min(100vw, 46.09vh, var(--page-width));
-  height: min(100vh, 216.95vw, var(--phone-height));
+  height: min(100vh, 216.95vw, var(--viewport-height));
   margin: 0;
   padding: 0;
   background: #ffffff;
@@ -44,7 +44,7 @@ body {
 @supports (height: 100dvh) {
   .paper-screen {
     width: min(100vw, 46.09dvh, var(--page-width));
-    height: min(100dvh, 216.95vw, var(--phone-height));
+    height: min(100dvh, 216.95vw, var(--viewport-height));
   }
 }
 
@@ -58,7 +58,7 @@ body {
   line-height: 0;
 }
 
-.typography-frame {
+.composition-frame {
   display: block;
   width: 100%;
   height: auto;

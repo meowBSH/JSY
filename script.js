@@ -1,10 +1,15 @@
 document.documentElement.classList.add("js-ready");
 
 const scrollContainer = document.querySelector(".paper-screen");
-const frame = document.querySelector("#typographyFrame");
+const frame = document.querySelector("#compositionFrame");
 const frameCount = 150;
 const lastFrame = frameCount - 1;
 const loadedFrames = new Map();
+const frameDirectory = "images/컴포지션";
+const frameNamePrefix = "컴포지션 1_";
+const preloadBack = 3;
+const preloadAhead = 8;
+const cacheRadius = 16;
 
 let activeFrame = 0;
 let ticking = false;
@@ -13,7 +18,7 @@ const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 const getFrameSrc = (index) => {
   const frameNumber = String(index).padStart(5, "0");
-  return `assets/typogra/typogra_${frameNumber}.jpg`;
+  return `${frameDirectory}/${frameNamePrefix}${frameNumber}.png`;
 };
 
 const preloadFrame = (index) => {
@@ -22,13 +27,22 @@ const preloadFrame = (index) => {
   }
 
   const image = new Image();
+  image.decoding = "async";
   image.src = getFrameSrc(index);
   loadedFrames.set(index, image);
 };
 
 const preloadAround = (index) => {
-  for (let offset = -3; offset <= 8; offset += 1) {
+  for (let offset = -preloadBack; offset <= preloadAhead; offset += 1) {
     preloadFrame(index + offset);
+  }
+};
+
+const trimLoadedFrames = (index) => {
+  for (const frameIndex of loadedFrames.keys()) {
+    if (Math.abs(frameIndex - index) > cacheRadius) {
+      loadedFrames.delete(frameIndex);
+    }
   }
 };
 
@@ -50,6 +64,7 @@ const updateFrame = () => {
   }
 
   preloadAround(activeFrame);
+  trimLoadedFrames(activeFrame);
 };
 
 const requestFrameUpdate = () => {
@@ -59,21 +74,6 @@ const requestFrameUpdate = () => {
   }
 };
 
-const preloadAllFrames = () => {
-  let index = 0;
-
-  const queueNext = () => {
-    preloadFrame(index);
-    index += 1;
-
-    if (index < frameCount) {
-      window.setTimeout(queueNext, 16);
-    }
-  };
-
-  queueNext();
-};
-
 preloadAround(0);
 scrollContainer.addEventListener("scroll", requestFrameUpdate, {
   passive: true,
@@ -81,5 +81,4 @@ scrollContainer.addEventListener("scroll", requestFrameUpdate, {
 window.addEventListener("resize", requestFrameUpdate);
 window.addEventListener("load", () => {
   requestFrameUpdate();
-  preloadAllFrames();
 });
